@@ -1,5 +1,13 @@
 // Package variance_test demonstrates covariance and contravariance of slice in go.
 // Motivation: https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science)#Arrays
+//
+// CAUTION:
+// This implementation relies on the fact that both Cat and Dog's itables include the Animal's itable at the beginning.
+// Itable is sorted by name. This code will break if Animal is changed to
+//
+//	  type Animal interface {
+//		 XAnimal()
+//	 }
 package variance_test
 
 import (
