@@ -91,7 +91,7 @@ func Variant[T1, T2 any](a []T1) []T2 {
 		panic(fmt.Errorf("%v is not an interface", t2))
 	}
 	if !t1.AssignableTo(t2) && !t2.AssignableTo(t1) {
-		panic(fmt.Errorf("incompatible type %v and %v", t1.String(), t2.String()))
+		panic(fmt.Errorf("incompatible types: %v and %v", t1.String(), t2.String()))
 	}
 
 	return *(*[]T2)(unsafe.Pointer(&a))
